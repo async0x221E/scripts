@@ -337,9 +337,9 @@ nettwo(){
 	echo "=================="
 	echo ""
 	read -p "Enter network address to scan: " addr
+	mkdir ~/Hosts/$addr 2>/dev/null
 	echo ""
 	echo "All result are save in ~/Hosts/$addr/ directory."
-	mkdir ~/Hosts/$addr 2>/dev/null
 	echo ""
 	sudo nmap -Pn -sV -O -sS -f --open --top-ports 10 $addr -oN ~/Hosts/$addr/tcp10.txt
 	echo ""
@@ -353,9 +353,9 @@ netthree(){
 	echo "==============="
 	echo ""
 	read -p "Enter network address to scan: " addr
+	mkdir ~/Hosts/$addr 2>/dev/null
 	echo ""
 	echo "All result are save in ~/Hosts/$addr/ directory."
-	mkdir ~/Hosts/$addr 2>/dev/null
 	echo ""
 	sudo nmap -Pn -A -sC -sS -f -p- $addr -oN ~/Hosts/$addr/tcp.txt
 	echo ""
@@ -369,9 +369,9 @@ netfour(){
 	echo "=========="
 	echo ""
 	read -p "Enter network address to scan: " addr
+	mkdir ~/Hosts/$addr 2>/dev/null
 	echo ""
 	echo "All result are save in ~/Hosts/$addr/ directory."
-	mkdir ~/Hosts/$addr 2>/dev/null
 	echo ""
 	sudo nmap -Pn --top-ports 1000 -sU --stats-every 3m --max-retries 1 -T3 $addr -oN ~/Hosts/$addr/udp.txt
 	echo ""
@@ -385,9 +385,9 @@ netfive(){
 	echo "============"
 	echo ""
 	read -p "Enter network address to scan: " addr
+	mkdir ~/Hosts/$addr 2>/dev/null
 	echo ""
 	echo "All result are save in ~/Hosts/$addr/ directory."
-	mkdir ~/Hosts/$addr 2>/dev/null
 	echo ""
 	echo "Scanning the given address with enum4linux please-wait."
 	sudo enum4linux -a $addr > ~/Hosts/$addr/enum4linux.txt
@@ -402,7 +402,6 @@ netsix(){
 	echo "==========="
 	echo ""
 	read -p "Enter network address to scan: " addr
-	mkdir ~/Hosts/$addr 2>/dev/null
 	read -p "Enter network address to scan: " addr
 	mkdir ~/Hosts/$addr 2>/dev/null
 	echo ""
@@ -424,9 +423,9 @@ netseven(){
 	echo ""
 	read -p "Enter network address to scan: " addr
 	read -p "Enter the fullpath of the userlists to use: " userlist
+	mkdir ~/Hosts/$addr 2>/dev/null
 	echo ""
 	echo "All result are save in ~/Hosts/$addr/ directory."
-	mkdir ~/Hosts/$addr 2>/dev/null
 	echo ""
 	sudo smtp-user-enum -M VRFY -U $userlist -t $addr > ~/Hosts/$addr/smtp.txt
 	echo ""
@@ -441,9 +440,9 @@ neteight(){
 	echo ""
 	echo "Example 192.168.0.1:80"
 	read -p "Enter network address and port to scan: " addr
+	mkdir ~/Hosts/$addr 2>/dev/null
 	echo ""
 	echo "All result are save in ~/Hosts/$addr/ directory."
-	mkdir ~/Hosts/$addr 2>/dev/null
 	echo ""
 	sudo nikto -h http://$addr -output ~/Hosts/$addr/nikto.txt
 	echo ""
@@ -458,9 +457,9 @@ netnine(){
 	echo ""
 	echo "Example 192.168.0.1:80"
 	read -p "Enter network address to scan: " addr
+	mkdir Hosts/$addr 2>/dev/null
 	echo ""
 	echo "All result are save in ~/Hosts/$addr/ directory."
-	mkdir Hosts/$addr 2>/dev/null
 	echo ""
 	sudo dirb http://$addr/ /usr/share/wordlists/dirb/common.txt -o ~/Hosts/$addr/dirb.txt
 	echo ""
@@ -699,7 +698,7 @@ payten(){
 	echo ""
 }
 
-payelven(){
+payeleven(){
 	mkdir ~/Payload/ 2>/dev/null
 	mkdir ~/Payload/scripts/ 2>/dev/null
 	echo ""
