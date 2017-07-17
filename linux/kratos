@@ -9,11 +9,11 @@
 #  Exit code '2' means help screen
 #  Exit code '6' means updated exploitdb package (GIT)
 
-
+#### THE FOLLOWING MODULE IS NOT COMPLETE #####
 ## OS settings (get the path of where the script is stored + database file)
-gitpath="/home/Kratos/ProjectSH/modules"
-csvpath="${gitpath}/database.csv"
-
+#gitpath="/home/Kratos/ProjectSH/modules"
+#csvpath="${gitpath}/database.csv"
+###############################################
 
 ## Program settings
 gitremote="https://github/m0tda/ProjectSH.git"
