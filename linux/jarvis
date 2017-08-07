@@ -1,0 +1,27 @@
+_AutoComp()
+{
+	local cur prev
+
+	COMPREPLY=()
+	cur=${COMP_WORDS[COMP_CWORD]}
+	prev=${COMP_WORDS[COMP_CWORD-1]}
+
+	if [ $COMP_CWORD -eq 1 ]; then
+		COMPREPLY=( $(compgen -W "--network --payload --search --misc --webserver --help" -- $cur) )
+	elif [ $COMP_CWORD -eq 2 ]; then
+		case "$prev" in
+			"--network")
+				COMPREPLY=( $(compgen -W "-ping -top20 -tcp -udp -enum4 -all -nikto -dirb" -- $cur) );;
+			"--payload")
+				COMPREPLY=( $(compgen -W "-linux_ns86 -linux_s86 -linux_ns64 -linux_s64 -windows_ns86 -windows_s86 -windows_ns64 -windows_s64 -linux_shellcode_ns86 -linux_shellcode_ns64 -windows_shellcode_ns86 -windows_shellcode_ns64 -reverse_shell" -- $cur) );;
+			"--search")
+				COMPREPLY=( $(compgen -W "-exploitdb -linux_suggester -windows_suggester" -- $cur) );;
+			"--misc")
+				COMPREPLY=( $(compgen -W "-tty -local_script -xfer_windows -xfer_linux" -- $cur) );;	
+
+		esac
+	fi
+
+	return 0
+}
+complete -F _AutoComp jarvis
